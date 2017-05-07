@@ -1,0 +1,38 @@
+{
+	"compilerOptions": {
+		"declaration": false,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"moduleResolution": "node",
+		"noImplicitAny": false,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": false,
+		"strictNullChecks": false,
+		"suppressImplicitAnyIndexErrors": true,
+		"module": "commonjs",
+		"sourceMap": false,
+		"target": "es5",
+		"outDir": "./",
+		"lib": [
+			"es5",
+			"dom",
+			"es2015.collection",
+			"es2015.promise",
+			"es2015.iterable",
+			"es2015.core"
+		],
+		"baseUrl": ".",
+		"skipLibCheck": true
+	},
+	"include": [
+		"./src/**/*.ts"
+	],
+	"exclude": [
+		"node_modules",
+		"test",
+		"dist",
+		"lib"
+	]
+}

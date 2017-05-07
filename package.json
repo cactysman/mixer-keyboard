@@ -1,0 +1,23 @@
+{
+  "name": "beam-keyboard2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "Metaa",
+  "license": "MIT",
+  "dependencies": {
+    "beam-interactive-node2": "^0.11.0",
+    "keycode": "^2.1.9",
+    "node-fetch": "^1.6.3",
+    "path": "^0.12.7",
+    "robotjs": "^0.4.7",
+    "ws": "^2.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Metaa/beam-interactive2-keyboard"
+  }
+}

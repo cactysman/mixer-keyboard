@@ -1,0 +1,126 @@
+{
+	"layout": {
+		"default": [
+			{
+				"kind": "button",
+				"controlID": "A",
+				"position": [
+					{
+						"size": "large",
+						"width": 6,
+						"height": 6,
+						"x": 62,
+						"y": 7
+					}
+				],
+				"text": "A",
+				"cost": 0
+			},
+			{
+				"kind": "button",
+				"controlID": "B",
+				"position": [
+					{
+						"size": "large",
+						"width": 6,
+						"height": 6,
+						"x": 55,
+						"y": 7
+					}
+				],
+				"text": "B",
+				"cost": 0
+			},
+			{
+				"kind": "button",
+				"controlID": "Start",
+				"position": [
+					{
+						"size": "large",
+						"width": 8,
+						"height": 4,
+						"x": 44,
+						"y": 8
+					}
+				],
+				"text": "START",
+				"cost": 0
+			},
+			{
+				"kind": "button",
+				"controlID": "Select",
+				"position": [
+					{
+						"size": "large",
+						"width": 8,
+						"height": 4,
+						"x": 35,
+						"y": 8
+					}
+				],
+				"text": "SELECT",
+				"cost": 0
+			},
+			{
+				"kind": "button",
+				"controlID": "Up",
+				"position": [
+					{
+						"size": "large",
+						"x": 19,
+						"y": 1,
+						"width": 6,
+						"height": 6
+					}
+				],
+				"text": "▲",
+				"cost": 0
+			},
+			{
+				"kind": "button",
+				"controlID": "Down",
+				"position": [
+					{
+						"size": "large",
+						"x": 19,
+						"y": 13,
+						"width": 6,
+						"height": 6
+					}
+				],
+				"text": "▼",
+				"cost": 0
+			},
+			{
+				"kind": "button",
+				"controlID": "Left",
+				"position": [
+					{
+						"size": "large",
+						"x": 13,
+						"y": 7,
+						"width": 6,
+						"height": 6
+					}
+				],
+				"text": "◀",
+				"cost": 0
+			},
+			{
+				"kind": "button",
+				"controlID": "Right",
+				"position": [
+					{
+						"size": "large",
+						"x": 25,
+						"y": 7,
+						"width": 6,
+						"height": 6
+					}
+				],
+				"text": "▶",
+				"cost": 0
+			}
+		]
+	}
+}
