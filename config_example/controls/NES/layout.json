@@ -3,14 +3,28 @@
 		"default": [
 			{
 				"kind": "button",
-				"controlID": "A",
+				"controlID": "a",
 				"position": [
 					{
 						"size": "large",
 						"width": 6,
 						"height": 6,
-						"x": 62,
+						"x": 61,
 						"y": 7
+					},
+					{
+						"size": "medium",
+						"x": 38,
+						"y": 9,
+						"width": 6,
+						"height": 6
+					},
+					{
+						"size": "small",
+						"x": 17,
+						"y": 22,
+						"width": 7,
+						"height": 7
 					}
 				],
 				"text": "A",
@@ -18,14 +32,28 @@
 			},
 			{
 				"kind": "button",
-				"controlID": "B",
+				"controlID": "b",
 				"position": [
 					{
 						"size": "large",
 						"width": 6,
 						"height": 6,
-						"x": 55,
+						"x": 54,
 						"y": 7
+					},
+					{
+						"size": "medium",
+						"x": 31,
+						"y": 9,
+						"width": 6,
+						"height": 6
+					},
+					{
+						"size": "small",
+						"x": 6,
+						"y": 22,
+						"width": 7,
+						"height": 7
 					}
 				],
 				"text": "B",
@@ -33,14 +61,28 @@
 			},
 			{
 				"kind": "button",
-				"controlID": "Start",
+				"controlID": "start",
 				"position": [
 					{
 						"size": "large",
 						"width": 8,
 						"height": 4,
-						"x": 44,
+						"x": 42,
 						"y": 8
+					},
+					{
+						"size": "medium",
+						"x": 20,
+						"y": 13,
+						"width": 8,
+						"height": 4
+					},
+					{
+						"size": "small",
+						"x": 16,
+						"y": 31,
+						"width": 9,
+						"height": 4
 					}
 				],
 				"text": "START",
@@ -48,14 +90,28 @@
 			},
 			{
 				"kind": "button",
-				"controlID": "Select",
+				"controlID": "select",
 				"position": [
 					{
 						"size": "large",
 						"width": 8,
 						"height": 4,
-						"x": 35,
+						"x": 33,
 						"y": 8
+					},
+					{
+						"size": "medium",
+						"x": 20,
+						"y": 7,
+						"width": 8,
+						"height": 4
+					},
+					{
+						"size": "small",
+						"x": 5,
+						"y": 31,
+						"width": 9,
+						"height": 4
 					}
 				],
 				"text": "SELECT",
@@ -63,42 +119,82 @@
 			},
 			{
 				"kind": "button",
-				"controlID": "Up",
+				"controlID": "cross_center",
 				"position": [
 					{
 						"size": "large",
-						"x": 19,
-						"y": 1,
+						"x": 18,
+						"y": 7,
+						"width": 6,
+						"height": 6
+					},
+					{
+						"size": "medium",
+						"x": 6,
+						"y": 9,
+						"width": 6,
+						"height": 6
+					},
+					{
+						"size": "small",
+						"x": 12,
+						"y": 9,
+						"width": 6,
+						"height": 6
+					}
+				]
+			},
+			{
+				"kind": "button",
+				"controlID": "right",
+				"position": [
+					{
+						"size": "large",
+						"x": 23,
+						"y": 7,
+						"width": 6,
+						"height": 6
+					},
+					{
+						"size": "medium",
+						"x": 11,
+						"y": 9,
+						"width": 6,
+						"height": 6
+					},
+					{
+						"size": "small",
+						"x": 17,
+						"y": 9,
 						"width": 6,
 						"height": 6
 					}
 				],
-				"text": "▲",
+				"text": "▶",
 				"cost": 0
 			},
 			{
 				"kind": "button",
-				"controlID": "Down",
-				"position": [
-					{
-						"size": "large",
-						"x": 19,
-						"y": 13,
-						"width": 6,
-						"height": 6
-					}
-				],
-				"text": "▼",
-				"cost": 0
-			},
-			{
-				"kind": "button",
-				"controlID": "Left",
+				"controlID": "left",
 				"position": [
 					{
 						"size": "large",
 						"x": 13,
 						"y": 7,
+						"width": 6,
+						"height": 6
+					},
+					{
+						"size": "medium",
+						"x": 1,
+						"y": 9,
+						"width": 6,
+						"height": 6
+					},
+					{
+						"size": "small",
+						"x": 7,
+						"y": 9,
 						"width": 6,
 						"height": 6
 					}
@@ -108,17 +204,60 @@
 			},
 			{
 				"kind": "button",
-				"controlID": "Right",
+				"controlID": "up",
 				"position": [
 					{
 						"size": "large",
-						"x": 25,
-						"y": 7,
+						"x": 18,
+						"y": 2,
+						"width": 6,
+						"height": 6
+					},
+					{
+						"size": "medium",
+						"x": 6,
+						"y": 4,
+						"width": 6,
+						"height": 6
+					},
+					{
+						"size": "small",
+						"x": 12,
+						"y": 4,
 						"width": 6,
 						"height": 6
 					}
 				],
-				"text": "▶",
+				"text": "▲",
+				"cost": 0
+			},
+			{
+				"kind": "button",
+				"controlID": "down",
+				"position": [
+					{
+						"size": "large",
+						"x": 18,
+						"y": 12,
+						"width": 6,
+						"height": 6
+					},
+					{
+						"size": "medium",
+						"x": 6,
+						"y": 14,
+						"width": 6,
+						"height": 6
+					},
+					{
+						"size": "small",
+						"x": 12,
+						"y": 14,
+						"width": 6,
+						"height": 6
+					}
+				],
+				"text": "▼",
 				"cost": 0
 			}
 		]
