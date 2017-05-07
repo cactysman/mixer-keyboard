@@ -76,14 +76,13 @@ client.on('open', () => {
 	}).then(controls => {
 		controls.forEach((control: IButton) => {
 			control.on('mousedown', (inputEvent, participant) => {
-				console.log(`[BUTT][v] ${participant.username}, ${inputEvent.input.controlID}`);
-
 				const keyCode = controlsMapping[inputEvent.input.controlID];
 				if(keyCode != null) {
 					robot.keyToggle(keyCode, 'down');
+					console.log(`[BUTT][v] ${participant.username}, ${inputEvent.input.controlID}`);
 				}
 
-				if (inputEvent.transactionID) {
+				if(inputEvent.transactionID) {
 					client.captureTransaction(inputEvent.transactionID)
 						.then(() => {
 							console.log(`[SPRK] ${participant.username}, ${control.cost}`);
@@ -91,11 +90,10 @@ client.on('open', () => {
 				}
 			});
 			control.on('mouseup', (inputEvent, participant) => {
-				console.log(`[BUTT][^] ${participant.username}, ${inputEvent.input.controlID}`);
-				
 				const keyCode = controlsMapping[inputEvent.input.controlID];
 				if(keyCode != null) {
 					robot.keyToggle(keyCode, 'up');
+					console.log(`[BUTT][^] ${participant.username}, ${inputEvent.input.controlID}`);
 				}
 			});
 		});
