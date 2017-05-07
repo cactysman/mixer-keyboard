@@ -78,7 +78,10 @@ client.on('open', () => {
 			control.on('mousedown', (inputEvent, participant) => {
 				console.log(`[BUTT][v] ${participant.username}, ${inputEvent.input.controlID}`);
 
-				robot.keyToggle(controlsMapping[inputEvent.input.controlID], 'down');
+				const keyCode = controlsMapping[inputEvent.input.controlID];
+				if(keyCode != null) {
+					robot.keyToggle(keyCode, 'down');
+				}
 
 				if (inputEvent.transactionID) {
 					client.captureTransaction(inputEvent.transactionID)
@@ -89,8 +92,11 @@ client.on('open', () => {
 			});
 			control.on('mouseup', (inputEvent, participant) => {
 				console.log(`[BUTT][^] ${participant.username}, ${inputEvent.input.controlID}`);
-
-				robot.keyToggle(controlsMapping[inputEvent.input.controlID], 'up');
+				
+				const keyCode = controlsMapping[inputEvent.input.controlID];
+				if(keyCode != null) {
+					robot.keyToggle(keyCode, 'up');
+				}
 			});
 		});
 

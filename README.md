@@ -1,4 +1,4 @@
-# MetaButtons v0.1.1 [![JavaScript](doc/nodejs.png)](https://nodejs.org/) [![JavaScript](doc/beamM.png)](https://beam.pro/)
+# MetaButtons v0.1.2 [![JavaScript](doc/nodejs.png)](https://nodejs.org/) [![JavaScript](doc/beamM.png)](https://beam.pro/)
 
 A handy keyboard for [![Beam](doc/beamS.png)&nbsp;Beam&nbsp;interactive&nbsp;2](https://dev.beam.pro/reference/interactive/).  
 This makes use of [beam-interactive-node2](https://github.com/WatchBeam/beam-interactive-node2).
