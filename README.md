@@ -1,4 +1,4 @@
-# MetaButtons v0.1 ![JavaScript](doc/nodejs.png) ![JavaScript](doc/beamM.png)
+# MetaButtons v0.1.1 [![JavaScript](doc/nodejs.png)](https://nodejs.org/) [![JavaScript](doc/beamM.png)](https://beam.pro/)
 
 A handy keyboard for [![Beam](doc/beamS.png)&nbsp;Beam&nbsp;interactive&nbsp;2](https://dev.beam.pro/reference/interactive/).  
 This makes use of [beam-interactive-node2](https://github.com/WatchBeam/beam-interactive-node2).
@@ -33,8 +33,7 @@ See it in action on [YouPlay](https://beam.pro/Youplay)!
 	```
 1.
 	Edit *auth.json* and replace the dummy value with [your OAuth token](https://dev.beam.pro/reference/oauth/).  
-	You will need following OAuth scopes:
-	-	``interactive:manage:self``
+	You will need following OAuth scope:
 	-	``interactive:robot:self``
 1.
 	Build the code.

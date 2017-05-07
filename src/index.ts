@@ -8,7 +8,7 @@ import {
 	GameClient,
 	IButton, IButtonData, IControlData,
 	setWebSocket,
-} from 'beam-interactive-node2/lib';
+} from 'beam-interactive-node2';
 
 
 // npm packets
