@@ -17,37 +17,36 @@ See it in action on [YouPlay](https://beam.pro/Youplay)!
 1.	Create a new Project.
 1.	Give it a name and optionally fill out other fields.
 1.	Skip the *Build* section.
-1.	At *Code* grab your **version ID**. You will need that later on.
+1.	At *Code* grab your **version ID**. You will need that later on.  
 	![Image of where you can obtain your version ID](doc/getVersionID.png)
 		
 ### Setting up
-1.
-	Fetch node packages  
+1. Fetch node packages  
 	```shell
 	npm i
 	```
-1.
-	Rename the example config directory  
+
+1. Rename the example config directory  
 	```shell
 	mv config_example config
 	```
-1.
-	Edit *auth.json* and replace the dummy value with [your OAuth token](https://dev.beam.pro/reference/oauth/).  
+
+1. Edit *auth.json* and replace the dummy value with [your OAuth token](https://dev.beam.pro/reference/oauth/).  
 	You will need following OAuth scope:
 	-	``interactive:robot:self``
-1.
-	Build the code.
+
+1. Build the code.
 	```shell
 	npm run build
 	```
-1.
-	Do a test run!
+
+1. Do a test run!
 	```shell
 	node index.js "./config/controls/NES/layout.json" "./config/controls/NES/mapping.json" 
 	```
+
 	(or use ``start.sh`` or ``start.bat`` as an example)
-1.
-	Configure layouts and mappings as you wish.
+1. Configure layouts and mappings as you wish.
 
 ## How things work
 ### Running it
