@@ -14,7 +14,6 @@ import {
 // npm packets
 let robot = require('robotjs');
 let path = require('path');
-let fetch = require('node-fetch');
 
 
 // Make sure we got all info we need
@@ -35,23 +34,12 @@ const client = new GameClient();
 client.on('message', (err: any) => { if(debug)console.log('<<<', err) });
 client.on('send', (err: any) => { if(debug)console.log('>>>', err) });
 client.on('error', (err: any) => { if(debug)console.log(err) });
+client.on('open', () => console.log('Connected to interactive'));
 setWebSocket(WebSocket);
 
 
 // Get auth info
 let auth = require('./config/auth.json').oauth;
-
-
-// Get the interactive host address
-fetch('https://beam.pro/api/v1/interactive/hosts')
-	.then((res) => { return res.json(); })
-	.then(function(interactiveHosts) {
-		client.open({
-			authToken: auth,
-			url: interactiveHosts[0].address,
-			versionId: versionID,
-		});
-	});
 
 
 function makeControls(controlsConfig: any): IControlData[] {
@@ -62,55 +50,57 @@ function makeControls(controlsConfig: any): IControlData[] {
 	return controls;
 }
 
-// Wait for interactive to connect
-// then start all the other things
-client.on('open', () => {
-	console.log('Connected to interactive');
-
+// Connect to interactive
+client.open({
+	authToken: auth,
+	versionId: versionID,
+}).then(() => {
+	// Create our controls
 	const controlsLayout = require(layoutFile);
-	const controlsMapping = require(mappingFile);
 
-	client.createControls({
+	return client.createControls({
 		sceneID: 'default',
 		controls: makeControls(controlsLayout.layout.default),
-	}).then(controls => {
-		controls.forEach((control: IButton) => {
-			control.on('mousedown', (inputEvent, participant) => {
-				const keyCode = controlsMapping[inputEvent.input.controlID];
-				if(keyCode != null) {
-					robot.keyToggle(keyCode, 'down');
-					console.log(`[BUTT][v] ${participant.username}, ${inputEvent.input.controlID}`);
-				}
+	});
+}).then(controls => {
+	const controlsMapping = require(mappingFile);
+	
+	controls.forEach((control: IButton) => {
+		control.on('mousedown', (inputEvent, participant) => {
+			const keyCode = controlsMapping[inputEvent.input.controlID];
+			if(keyCode != null) {
+				robot.keyToggle(keyCode, 'down');
+				console.log(`[BUTT][v] ${participant.username}, ${inputEvent.input.controlID}`);
+			}
 
-				if(inputEvent.transactionID) {
-					client.captureTransaction(inputEvent.transactionID)
-						.then(() => {
-							console.log(`[SPRK] ${participant.username}, ${control.cost}`);
-						});
-				}
-			});
-			control.on('mouseup', (inputEvent, participant) => {
-				const keyCode = controlsMapping[inputEvent.input.controlID];
-				if(keyCode != null) {
-					robot.keyToggle(keyCode, 'up');
-					console.log(`[BUTT][^] ${participant.username}, ${inputEvent.input.controlID}`);
-				}
-			});
+			if(inputEvent.transactionID) {
+				client.captureTransaction(inputEvent.transactionID)
+					.then(() => {
+						console.log(`[SPRK] ${participant.username}, ${control.cost}`);
+					});
+			}
 		});
-
-		client.ready(true);
+		control.on('mouseup', (inputEvent, participant) => {
+			const keyCode = controlsMapping[inputEvent.input.controlID];
+			if(keyCode != null) {
+				robot.keyToggle(keyCode, 'up');
+				console.log(`[BUTT][^] ${participant.username}, ${inputEvent.input.controlID}`);
+			}
+		});
 	});
 
-	client.state.on('participantJoin', participant => {
-		console.log(`[JOIN] ${participant.username}`);
+	client.ready(true);
+});
 
-		participantList[participant.sessionID] = participant;
+client.state.on('participantJoin', participant => {
+	console.log(`[JOIN] ${participant.username}`);
 
-	});
-	client.state.on('participantLeave', (participantSessionID: string ) => {
-		let participantName = participantList[participantSessionID].username;
-		console.log(`[PART] ${participantName}`);
-	});
+	participantList[participant.sessionID] = participant;
+
+});
+client.state.on('participantLeave', (participantSessionID: string ) => {
+	let participantName = participantList[participantSessionID].username;
+	console.log(`[PART] ${participantName}`);
 });
 
 
