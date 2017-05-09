@@ -1,7 +1,7 @@
 # MetaButtons v0.1.2 [![JavaScript](doc/nodejs.png)](https://nodejs.org/) [![JavaScript](doc/beamM.png)](https://beam.pro/)
 
 A handy keyboard for [![Beam](doc/beamS.png)&nbsp;Beam&nbsp;interactive&nbsp;2](https://dev.beam.pro/reference/interactive/).  
-This makes use of [beam-interactive-node2](https://github.com/WatchBeam/beam-interactive-node2).
+This makes use of [beam-interactive-node2](https://github.com/WatchBeam/beam-interactive-node2) v**0.11 or later**. (Will update for 1.X soon)
 
 ## What it does
 This script lets you set up a keyboard for your [Beam](https://beam.pro/) channel by defining a simple set of controls.
