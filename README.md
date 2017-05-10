@@ -1,4 +1,4 @@
-# MetaButtons v0.1.3 [![JavaScript](doc/nodejs.png)](https://nodejs.org/) [![JavaScript](doc/beamM.png)](https://beam.pro/)
+# MetaButtons v0.1.3 [![NodeJS](doc/nodejs.png)](https://nodejs.org/) [![Beam](doc/beamM.png)](https://beam.pro/)
 
 A handy keyboard for [![Beam](doc/beamS.png)&nbsp;Beam&nbsp;interactive&nbsp;2](https://dev.beam.pro/reference/interactive/).  
 This makes use of [beam-interactive-node2](https://github.com/WatchBeam/beam-interactive-node2).
@@ -42,7 +42,7 @@ See it in action on [YouPlay](https://beam.pro/Youplay)!
 
 1. Do a test run!
 	```shell
-	node index.js "./config/controls/NES/layout.json" "./config/controls/NES/mapping.json" 
+	node index.js "./config/controls/NES/layout.json" "./config/controls/NES/mapping.json" 12345
 	```
 
 	(or use ``start.sh`` or ``start.bat`` as an example)
