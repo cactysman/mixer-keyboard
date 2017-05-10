@@ -18,7 +18,8 @@ let path = require('path');
 
 // Make sure we got all info we need
 if (process.argv.length < 3) {
-	console.log(`Usage: node ${path.basename(__filename)} <versionID> <layoutFile> <mappingFile>`);
+	console.error(`Usage: node ${path.basename(__filename)} <versionID> <layoutFile> <mappingFile>`);
+	process.exit(1);
 }
 
 
