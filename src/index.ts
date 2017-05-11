@@ -6,27 +6,38 @@ const debug: boolean = false;
 import * as WebSocket from 'ws';
 import {
 	GameClient,
-	IButton, IButtonData, IControlData,
+	IButton,
 	setWebSocket,
 } from 'beam-interactive-node2';
 
 
 // npm packets
-let robot = require('robotjs');
 let path = require('path');
 
 
-// Make sure we got all info we need
+// Load functions
+const Functions = require('./lib/functions');
+
+
+// Make sure we got all the info we need
 if (process.argv.length < 3) {
-	console.error(`Usage: node ${path.basename(__filename)} <versionID> <layoutFile> <mappingFile>`);
+	console.error(`Usage: node ${path.basename(__filename)} <profile.json>`);
 	process.exit(1);
 }
 
 
 // Distribute arg vars
-const layoutFile: string = process.argv[2];
-const mappingFile: string = process.argv[3];
-const versionID: number = parseInt(process.argv[4]);
+const profileFilePath: string = process.argv[2];
+
+
+// Load profile
+const profile: any = Functions.loadFile(profileFilePath, 'profile');
+const auth: any = Functions.loadFile(path.dirname(profileFilePath) + '/' + profile.auth, 'auth');
+const layout: any = Functions.loadFile(path.dirname(profileFilePath) + '/' + profile.layout, 'layout');
+const mapping: any = Functions.loadFile(path.dirname(profileFilePath) + '/' + profile.mapping, 'mapping');
+const versionID: number = profile.versionID;
+
+const handlers: any = {};
 const participantList: any = {};
 
 
@@ -39,39 +50,33 @@ client.on('open', () => console.log('Connected to interactive'));
 setWebSocket(WebSocket);
 
 
-// Get auth info
-let auth = require('./config/auth.json').oauth;
-
-
-function makeControls(controlsConfig: any): IControlData[] {
-	const controls: IButtonData[] = [];
-	for (let i = 0; i < controlsConfig.length; i++) {
-		controls.push(controlsConfig[i]);
-	}
-	return controls;
-}
-
 // Connect to interactive
 client.open({
-	authToken: auth,
+	authToken: auth.oauth,
 	versionId: versionID,
 }).then(() => {
-	// Create our controls
-	const controlsLayout = require(layoutFile);
+	// Load handlers
+	for(let handlerName in profile.handlers) {
+		let handler = Functions.getHandler(profile.handlers[handlerName], path.dirname(profileFilePath), handlerName);
+		if(handler != null) {
+			handlers[handlerName] = handler;
+		}
+	}
 
+	// Create our controls
 	return client.createControls({
 		sceneID: 'default',
-		controls: makeControls(controlsLayout.layout.default),
+		controls: Functions.makeControls(layout.layout.default),
 	});
 }).then(controls => {
-	const controlsMapping = require(mappingFile);
-	
 	controls.forEach((control: IButton) => {
 		control.on('mousedown', (inputEvent, participant) => {
-			const keyCode = controlsMapping[inputEvent.input.controlID];
-			if(keyCode != null) {
-				robot.keyToggle(keyCode, 'down');
-				console.log(`[BUTT][v] ${participant.username}, ${inputEvent.input.controlID}`);
+			const keyConfig = mapping[inputEvent.input.controlID];
+			if(keyConfig != null) {
+				if(handlers['button'] != null)
+				{
+					handlers['button'].handle(inputEvent, participant, keyConfig);
+				}
 			}
 
 			if(inputEvent.transactionID) {
@@ -82,10 +87,12 @@ client.open({
 			}
 		});
 		control.on('mouseup', (inputEvent, participant) => {
-			const keyCode = controlsMapping[inputEvent.input.controlID];
+			const keyCode = mapping[inputEvent.input.controlID];
 			if(keyCode != null) {
-				robot.keyToggle(keyCode, 'up');
-				console.log(`[BUTT][^] ${participant.username}, ${inputEvent.input.controlID}`);
+				if(handlers['button'] != null)
+				{
+					handlers['button'].handle(inputEvent, participant, keyCode);
+				}
 			}
 		});
 	});

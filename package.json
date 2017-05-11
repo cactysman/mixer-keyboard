@@ -1,6 +1,6 @@
 {
   "name": "beam-keyboard2",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "beam-interactive-node2": "^1.0.1",
+    "fs": "0.0.1-security",
     "keycode": "^2.1.9",
     "path": "^0.12.7",
     "robotjs": "^0.4.7",

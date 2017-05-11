@@ -1,0 +1,15 @@
+{
+	"auth": "../../auth.json",
+	"handlers": {
+		"button": {
+			"path": "handler.js",
+			"config": {
+				"foo": "bar"
+			}
+		},
+		"joystick": null
+	},
+	"layout": "layout.json",
+	"mapping": "mapping.json",
+	"versionID": 12345
+}
