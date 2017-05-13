@@ -9,9 +9,9 @@
   "author": "Metaa",
   "license": "MIT",
   "dependencies": {
+    "@types/node": "^7.0.18",
     "beam-interactive-node2": "^1.0.1",
     "fs": "0.0.1-security",
-    "keycode": "^2.1.9",
     "path": "^0.12.7",
     "robotjs": "^0.4.7",
     "ws": "^2.3.1"
