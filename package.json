@@ -1,10 +1,13 @@
 {
-  "name": "beam-keyboard2",
-  "version": "0.2.0",
-  "description": "",
+  "name": "beam-keyboard",
+  "version": "0.3.0-first",
+  "description": "A handy keyboard for Beam interactive 2",
   "main": "index.js",
   "scripts": {
     "build": "tsc"
+  },
+  "bin": {
+    "beam-keyboard": "bin/beam-keyboard-cli.js"
   },
   "author": "Metaa",
   "license": "MIT",
@@ -19,5 +22,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Metaa/beam-interactive2-keyboard"
+  },
+  "devDependencies": {
+    "typescript": "^2.3.2"
   }
 }

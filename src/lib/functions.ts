@@ -1,8 +1,15 @@
-import {IButtonData, IControlData} from "beam-interactive-node2";
+import {GameClient, IButtonData, IControlData} from "beam-interactive-node2";
+import {AbstractHandler} from "./handler/AbstractHandler";
 let fs = require('fs');
 let path = require('path');
 
-class Functions {
+export class Functions {
+	static client: GameClient;
+
+	static setClient(client: GameClient) {
+		Functions.client = client;
+	}
+
 	static makeControls(controlsConfig: any): IControlData[] {
 		const controls: IButtonData[] = [];
 		for (let i = 0; i < controlsConfig.length; i++) {
@@ -10,47 +17,58 @@ class Functions {
 		}
 		return controls;
 	}
-	
-	static loadFile(path: string, name: string, relativePath: string = ''): any {
-		path = relativePath + path;
+
+	static loadFile(filepath: string, name: string, relativePath: string = ''): any {
+		if(!path.isAbsolute(filepath)) {
+			filepath = path.join(relativePath, filepath);
+		}
+		filepath = path.normalize(filepath);
+		
 		let json: JSON;
-		if(fs.existsSync(path)) {
-			json = require(path);
+		if(fs.existsSync(filepath)) {
+			json = JSON.parse(fs.readFileSync(filepath));
 		} else {
-			console.error(`Couldn't load ${name} file from provided path: ${path}`);
+			console.error(`Couldn't load ${name} file from provided path: ${filepath}`);
 			process.exit(1);
 		}
 		return json;
 	}
-	
-	static getHandler(handlerInfo: any, relativePath: string, role: string): any {
-		function cb(fileName: string) {
-			let tmp = require(fileName);
-			return new tmp.Handler(handlerInfo.config);
+
+	static getHandler(handlerInfo: any, relativePath: string, role: string): AbstractHandler {
+		function cb(fileName: string): AbstractHandler {
+			let handlerFile = require(path.normalize(fileName));
+			
+			let object = null;
+			if(handlerFile.Handler != null) {
+				object = new handlerFile.Handler(Functions.client, handlerInfo.config);
+				if(Object.getPrototypeOf(object.constructor.prototype).constructor == AbstractHandler) {
+					return object;
+				}
+			}
+			return object;
 		}
 		
 		if(handlerInfo == null) return null;
 		
 		let handlerFileName: string = '';
 		if(path.extname(handlerInfo.path) == '') {
-			handlerFileName = `${path.dirname(__filename)}/handler/${role}/${path.basename(handlerInfo.path)}.js`;
+			handlerFileName = path.join(path.dirname(__filename), 'handler', role, handlerInfo.path + '.js');
 			if(fs.existsSync(handlerFileName)) {
 				return cb(handlerFileName);
 			}
 		}
 
-		handlerFileName = path.isAbsolute(handlerInfo.path) ? handlerInfo.path : (relativePath + '/' + handlerInfo.path);
+		handlerFileName = path.isAbsolute(handlerInfo.path) ? handlerInfo.path : path.join(relativePath, handlerInfo.path);
 		if(fs.existsSync(handlerFileName)) {
 			return cb(handlerFileName);
 		}
 		
-		handlerFileName = `${path.dirname(__filename)}/handler/${role}/default`;
+		handlerFileName = path.join(path.dirname(__filename), 'handler', role, 'default');
 		if(fs.existsSync(handlerFileName)) {
 			return cb(handlerFileName);
 		}
-
 		return null;
 	}
 }
 
-module.exports = Functions;
+exports.Functions = Functions;
