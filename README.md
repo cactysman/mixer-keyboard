@@ -68,12 +68,12 @@ It's a [JSON](https://www.w3schools.com/js/js_json_intro.asp) file that holds pa
 -	**handlers** (Object)  
 	This defines the handlers that will be used for your controls.  
 	Currently there is only *button*, but support for others (like for *joystick*) will follow.
-		-	**path** (String)  
-			That's the path to where the handler [NodeJS](https://nodejs.org/) file is located.  
-			You can also pass a name of a default handler (e.g. ``robotjs``).
-		-	**config**  
-			The config your handler needs to get initialized.  
-			Can be anything you want.
+	-	**path** (String)  
+		That's the path to where the handler [NodeJS](https://nodejs.org/) file is located.  
+		You can also pass a name of a default handler (e.g. ``robotjs``).
+	-	**config**  
+		The config your handler needs to get initialized.  
+		Can be anything you want.
 -	**layout** (String)  
 	The path to your layout config file.
 -	**mapping** (String)  
@@ -90,10 +90,10 @@ The layout files consist of a [JSON](https://www.w3schools.com/js/js_json_intro.
 -	**layout** (Object)  
 	This holds the available scenes (only *default* is used right now) as key-value.  
 	The name of the scene is the key.
-		-	**&lt;sceneName&gt;** (Array)  
-			(for example: '*default*')  
-			This holds the configuration of the buttons in [JSON](https://www.w3schools.com/js/js_json_intro.asp) format.  
-			You can design the layout and copy the [JSON](https://www.w3schools.com/js/js_json_intro.asp) configuration in the ![Interactive Studio logo](doc/interactiveStudio.png)&nbsp;[*Interactive studio*](https://beam.pro/i/studio).	
+	-	**&lt;sceneName&gt;** (Array)  
+		(for example: '*default*')  
+		This holds the configuration of the buttons in [JSON](https://www.w3schools.com/js/js_json_intro.asp) format.  
+		You can design the layout and copy the [JSON](https://www.w3schools.com/js/js_json_intro.asp) configuration in the ![Interactive Studio logo](doc/interactiveStudio.png)&nbsp;[*Interactive studio*](https://beam.pro/i/studio).	
 
 ### Mapping files
 The mapping files consist of a [JSON](https://www.w3schools.com/js/js_json_intro.asp) object that holds following information:
