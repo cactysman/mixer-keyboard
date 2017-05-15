@@ -1,6 +1,6 @@
 {
   "name": "beam-keyboard",
-  "version": "0.3.0-first",
+  "version": "0.3.1",
   "description": "A handy keyboard for Beam interactive 2",
   "main": "index.js",
   "scripts": {

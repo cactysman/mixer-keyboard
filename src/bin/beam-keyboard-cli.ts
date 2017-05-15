@@ -11,6 +11,7 @@ export { AbstractHandler } from "../lib/handler/AbstractHandler";
 
 process.on('unhandledRejection', r => console.log(r));
 
+const _packageName = 'beam-keyboard';
 const _debug: boolean = false;
 
 
@@ -20,7 +21,7 @@ let path = require('path');
 
 // Make sure we got all the info we need
 if (process.argv.length < 3) {
-	console.error(`Usage: node ${path.basename(__filename)} <profile.json>`);
+	console.error(`Usage: ${_packageName} <profile.json>`);
 	process.exit(1);
 }
 

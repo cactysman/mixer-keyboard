@@ -1,4 +1,5 @@
-.idea
+/.idea
+/bin
 /config
 /node_modules
 /lib
