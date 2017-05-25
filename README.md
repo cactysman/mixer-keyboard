@@ -1,32 +1,32 @@
-# Interactive2 Keyboard [![Beam](doc/beamM.png)](https://beam.pro/) [![NodeJS](doc/nodejs.png)](https://nodejs.org/) [![NPM version](https://img.shields.io/npm/v/beam-keyboard.svg)](https://www.npmjs.com/package/beam-keyboard)
+# Interactive2 Keyboard [![Mixer](doc/mixerM.png)](https://mixer.com/) [![NodeJS](doc/nodejs.png)](https://nodejs.org/) [![NPM version](https://img.shields.io/npm/v/mixer-keyboard.svg)](https://www.npmjs.com/package/mixer-keyboard)
 
-A handy keyboard for [![Beam](doc/beamS.png)&nbsp;Beam&nbsp;interactive&nbsp;2](https://dev.beam.pro/reference/interactive/).  
-This makes use of [interactive-node](https://github.com/WatchBeam/interactive-node).
+A handy keyboard for [![Mixer](doc/mixerS.png)&nbsp;Mixer&nbsp;interactive&nbsp;2](https://dev.mixer.com/reference/interactive/).  
+This makes use of [interactive-node](https://github.com/mixer/interactive-node).
 
 ## What it does
-This script lets you set up a keyboard for your [Beam](https://beam.pro/) channel by defining a simple set of controls.
+This script lets you set up a keyboard for your [Mixer](https://mixer.com/) channel by defining a simple set of controls.
 When viewers use your controls, keys that are defined in corresponding files will do whatever you want them to do, for instance control your content.
 
 This is especially useful for interactive streams.
 
-See it in action on [YouPlay](https://beam.pro/Youplay)!
+See it in action on [YouPlay](https://mixer.com/Youplay)!
 
 ## Installation
-1. Globally install the [npm package](https://www.npmjs.com/package/beam-keyboard2).  
+1. Globally install the [npm package](https://www.npmjs.com/package/mixer-keyboard2).  
 	```shell
-	npm install -g beam-keyboard
+	npm install -g mixer-keyboard
 	```
 	
 1. [Create a profile](#creating-a-profile)
 
 1. Run the keyboard with your profile, like this
 	```shell
-	beam-keyboard "path/to/my/profiles/GreatGame/myprofile.json"
+	mixer-keyboard "path/to/my/profiles/GreatGame/myprofile.json"
 	```	
 
 ## Creating a profile
 ### Prerequisites
-1. Enter the [![Interactive Studio logo](doc/interactiveStudio.png)&nbsp;*Interactive&nbsp;studio*](https://beam.pro/i/studio).
+1. Enter the [![Interactive Studio logo](doc/interactiveStudio.png)&nbsp;*Interactive&nbsp;studio*](https://mixer.com/i/studio).
 1. Create a new Project.
 1. Give it a name and optionally fill out other fields.
 1. Skip the *Build* section.
@@ -41,7 +41,7 @@ See it in action on [YouPlay](https://beam.pro/Youplay)!
 1. Copy the ``config_example`` directory to a place that makes sense  
 	(You don't have to adopt the config directory structure here, but I think it's pretty organized the way it is)
 
-1. Inside your own ``config`` directory edit ``auth.json`` and replace the dummy value with [your OAuth token](https://dev.beam.pro/reference/oauth/).  
+1. Inside your own ``config`` directory edit ``auth.json`` and replace the dummy value with [your OAuth token](https://dev.mixer.com/reference/oauth/).  
 	You will need following OAuth scope:
 	-	``interactive:robot:self``
 
@@ -53,7 +53,7 @@ See it in action on [YouPlay](https://beam.pro/Youplay)!
 
 1. Do a test run!
 	```shell
-	beam-keyboard "./config/profiles/NES/profile.json" 
+	mixer-keyboard "./config/profiles/NES/profile.json" 
 	```
 
 ## How things work
@@ -93,7 +93,7 @@ The layout files consist of a [JSON](https://www.w3schools.com/js/js_json_intro.
 	-	**&lt;sceneName&gt;** (Array)  
 		(for example: '*default*')  
 		This holds the configuration of the buttons in [JSON](https://www.w3schools.com/js/js_json_intro.asp) format.  
-		You can design the layout and copy the [JSON](https://www.w3schools.com/js/js_json_intro.asp) configuration in the ![Interactive Studio logo](doc/interactiveStudio.png)&nbsp;[*Interactive studio*](https://beam.pro/i/studio).	
+		You can design the layout and copy the [JSON](https://www.w3schools.com/js/js_json_intro.asp) configuration in the ![Interactive Studio logo](doc/interactiveStudio.png)&nbsp;[*Interactive studio*](https://mixer.com/i/studio).	
 
 ### Mapping files
 The mapping files consist of a [JSON](https://www.w3schools.com/js/js_json_intro.asp) object that holds following information:

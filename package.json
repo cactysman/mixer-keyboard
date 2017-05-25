@@ -1,13 +1,13 @@
 {
-  "name": "beam-keyboard",
+  "name": "mixer-keyboard",
   "version": "0.3.1",
-  "description": "A handy keyboard for Beam interactive 2",
+  "description": "A handy keyboard for Mixer interactive 2",
   "main": "index.js",
   "scripts": {
     "build": "tsc"
   },
   "bin": {
-    "beam-keyboard": "bin/beam-keyboard-cli.js"
+    "beam-keyboard": "bin/mixer-keyboard-cli.js"
   },
   "author": "Metaa",
   "license": "MIT",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Metaa/beam-interactive2-keyboard"
+    "url": "git+https://github.com/Metaa/mixer-keyboard"
   },
   "devDependencies": {
     "typescript": "^2.3.2"

@@ -11,7 +11,7 @@ export { AbstractHandler } from "../lib/handler/AbstractHandler";
 
 process.on('unhandledRejection', r => console.log(r));
 
-const _packageName = 'beam-keyboard';
+const _packageName = 'mixer-keyboard';
 const _debug: boolean = false;
 
 
