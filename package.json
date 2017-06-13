@@ -12,7 +12,6 @@
   "author": "Metaa",
   "license": "MIT",
   "dependencies": {
-    "@types/node": "^7.0.18",
     "beam-interactive-node2": "^1.0.1",
     "fs": "0.0.1-security",
     "path": "^0.12.7",
@@ -24,6 +23,7 @@
     "url": "git+https://github.com/Metaa/mixer-keyboard"
   },
   "devDependencies": {
+    "@types/node": "^7.0.18",
     "typescript": "^2.3.2"
   }
 }
